@@ -1,28 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>麻木的世界</title>
-  <subtitle>黄鹤一去不复返，白云千载空悠悠。</subtitle>
-  <link href="/atom.xml" rel="self"/>
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
   
-  <link href="https://nandawys.github.io/"/>
-  <updated>2017-06-03T07:30:44.000Z</updated>
-  <id>https://nandawys.github.io/</id>
-  
-  <author>
-    <name>nandawys</name>
+    <title>207. Course Schedule | 麻木的世界</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>207. Course Schedule</title>
-    <link href="https://nandawys.github.io/2017/06/03/courseSchedule/"/>
-    <id>https://nandawys.github.io/2017/06/03/courseSchedule/</id>
-    <published>2017-06-03T07:30:15.000Z</published>
-    <updated>2017-06-03T07:30:44.000Z</updated>
+    <meta name="author" content="nandawys">
     
-    <content type="html"><![CDATA[<p>Total Accepted: 50440<br>Total Submissions: 175254<br>Difficulty: Medium<br>There are a total of n courses you have to take, labeled from 0 to n - 1.</p>
+
+    
+    <meta name="description" content="Total Accepted: 50440Total Submissions: 175254Difficulty: MediumThere are a total of n courses you have to take, labeled from 0 to n - 1.
+Some courses may have prerequisites, for example to take cours">
+<meta property="og:type" content="article">
+<meta property="og:title" content="207. Course Schedule">
+<meta property="og:url" content="https://nandawys.github.io/2017/06/03/courseSchedule/index.html">
+<meta property="og:site_name" content="麻木的世界">
+<meta property="og:description" content="Total Accepted: 50440Total Submissions: 175254Difficulty: MediumThere are a total of n courses you have to take, labeled from 0 to n - 1.
+Some courses may have prerequisites, for example to take cours">
+<meta property="og:updated_time" content="2017-06-03T07:30:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="207. Course Schedule">
+<meta name="twitter:description" content="Total Accepted: 50440Total Submissions: 175254Difficulty: MediumThere are a total of n courses you have to take, labeled from 0 to n - 1.
+Some courses may have prerequisites, for example to take cours">
+
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="麻木的世界" title="麻木的世界"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="麻木的世界">麻木的世界</a></h1>
+				<h2 class="blog-motto">黄鹤一去不复返，白云千载空悠悠。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:nandawys.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/06/03/courseSchedule/" title="207. Course Schedule" itemprop="url">207. Course Schedule</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="nandawys" target="_blank" itemprop="author">nandawys</a>
+		
+  <p class="article-time">
+    <time datetime="2017-06-03T07:30:15.000Z" itemprop="datePublished"> Published 2017-06-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邻接表-DFS"><span class="toc-number">2.</span> <span class="toc-text">邻接表+DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邻接矩阵-DFS（超时）"><span class="toc-number">3.</span> <span class="toc-text">邻接矩阵+DFS（超时）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邻接表-拓扑排序-（时间复杂度O-V-E-）"><span class="toc-number">4.</span> <span class="toc-text">邻接表+拓扑排序 （时间复杂度O(V+E)）</span></a></li></ol>
+		
+		</div>
+		
+		<p>Total Accepted: 50440<br>Total Submissions: 175254<br>Difficulty: Medium<br>There are a total of n courses you have to take, labeled from 0 to n - 1.</p>
 <p>Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]</p>
 <p>Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?</p>
 <p>For example:</p>
@@ -37,54 +116,304 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</div><div class="line">        <span class="keyword">var</span> val = <span class="number">0</span></div><div class="line">        <span class="keyword">var</span> next: <span class="type">Node</span>!</div><div class="line">        </div><div class="line">        <span class="keyword">init</span>(val: <span class="type">Int</span>) &#123;</div><div class="line">            <span class="keyword">self</span>.val = val</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">func</span> <span class="title">insert</span><span class="params">(node: Node)</span></span> &#123;</div><div class="line">            <span class="keyword">var</span> r:<span class="type">Node</span>! = <span class="keyword">self</span></div><div class="line">            <span class="keyword">while</span> r.next != <span class="literal">nil</span> &#123;</div><div class="line">                r = r.next</div><div class="line">            &#125;</div><div class="line">            r.next = node</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> list: [<span class="type">Node</span>] = []</div><div class="line">    <span class="keyword">var</span> visited: [<span class="type">Int</span>] = []</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">canFinish</span><span class="params">(numCourses: Int, <span class="number">_</span> prerequisites: [[Int]])</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="built_in">count</span> = numCourses</div><div class="line">        list = (<span class="number">0</span>..&lt;<span class="built_in">count</span>).<span class="built_in">map</span> &#123; <span class="type">Node</span>(val: $<span class="number">0</span>)&#125;</div><div class="line">        visited = <span class="type">Array</span>(<span class="built_in">count</span>: <span class="built_in">count</span>, repeatedValue: <span class="number">0</span>)</div><div class="line">        </div><div class="line">        prerequisites.forEach &#123; (edge) <span class="keyword">in</span></div><div class="line">            list[edge[<span class="number">0</span>]].insert(<span class="type">Node</span>(val: edge[<span class="number">1</span>]))</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">if</span> visited[i] == <span class="number">0</span> &#123;</div><div class="line">                <span class="keyword">if</span> !dfs(list[i], list: list, visited: &amp;visited) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">dfs</span><span class="params">(node: Node!, list: [Node], <span class="keyword">inout</span> visited: [Int])</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">if</span> node == <span class="literal">nil</span> &#123; <span class="keyword">return</span> <span class="literal">true</span> &#125;</div><div class="line">        </div><div class="line">        visited[node.val] = <span class="number">1</span></div><div class="line">        </div><div class="line">        <span class="keyword">var</span> r = node.next</div><div class="line">        <span class="keyword">while</span> r != <span class="literal">nil</span> &#123;</div><div class="line">            <span class="keyword">if</span> visited[r.val] == <span class="number">1</span> &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> visited[r.val] == <span class="number">2</span> &#123;</div><div class="line">                r = r.next</div><div class="line">                <span class="keyword">continue</span></div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> dfs(list[r.val], list: list, visited: &amp;visited) == <span class="literal">false</span> &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">            &#125;</div><div class="line">            r = r.next</div><div class="line">        &#125;</div><div class="line">        visited[node.val] = <span class="number">2</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="邻接矩阵-DFS（超时）"><a href="#邻接矩阵-DFS（超时）" class="headerlink" title="邻接矩阵+DFS（超时）"></a>邻接矩阵+DFS（超时）</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> nodes: [<span class="type">Int</span>] = []</div><div class="line">    <span class="keyword">var</span> matrix: [[<span class="type">Int</span>]] = []</div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> visited: [<span class="type">Bool</span>] = []</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">canFinish</span><span class="params">(numCourses: Int, <span class="number">_</span> prerequisites: [[Int]])</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="built_in">count</span> = numCourses</div><div class="line">        visited = <span class="type">Array</span>(<span class="built_in">count</span>: <span class="built_in">count</span>, repeatedValue: <span class="literal">false</span>)</div><div class="line">        nodes = [<span class="type">Int</span>](<span class="number">0</span>..&lt;<span class="built_in">count</span>)</div><div class="line">        matrix = (<span class="number">0</span>..&lt;<span class="built_in">count</span>).<span class="built_in">map</span> &#123; <span class="number">_</span> <span class="keyword">in</span> <span class="type">Array</span>(<span class="built_in">count</span>: <span class="built_in">count</span>, repeatedValue: <span class="number">0</span>) &#125;</div><div class="line">        prerequisites.forEach &#123; (edge) <span class="keyword">in</span></div><div class="line">            matrix[edge[<span class="number">0</span>]][edge[<span class="number">1</span>]] = <span class="number">1</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> history: [<span class="type">Int</span>] = []</div><div class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> nodes &#123;</div><div class="line">            <span class="keyword">if</span> _dfs(v, history: &amp;history) == <span class="literal">false</span> &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">_dfs</span><span class="params">(v: Int, <span class="keyword">inout</span> history: [Int])</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">if</span> history.<span class="built_in">contains</span>(v) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> visited[v] &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">        history.append(v)</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">if</span> matrix[v][i] == <span class="number">1</span> &#123;</div><div class="line">                <span class="keyword">if</span> _dfs(i,history: &amp;history) == <span class="literal">false</span> &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        history.removeLast()</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="邻接表-拓扑排序-（时间复杂度O-V-E-）"><a href="#邻接表-拓扑排序-（时间复杂度O-V-E-）" class="headerlink" title="邻接表+拓扑排序 （时间复杂度O(V+E)）"></a>邻接表+拓扑排序 （时间复杂度O(V+E)）</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</div><div class="line">        <span class="keyword">var</span> val = <span class="number">0</span></div><div class="line">        <span class="keyword">var</span> next: <span class="type">Node</span>!</div><div class="line">        </div><div class="line">        <span class="keyword">init</span>(val: <span class="type">Int</span>) &#123;</div><div class="line">            <span class="keyword">self</span>.val = val</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">func</span> <span class="title">insert</span><span class="params">(node: Node)</span></span> &#123;</div><div class="line">            <span class="keyword">var</span> r:<span class="type">Node</span>! = <span class="keyword">self</span></div><div class="line">            <span class="keyword">while</span> r.next != <span class="literal">nil</span> &#123;</div><div class="line">                r = r.next</div><div class="line">            &#125;</div><div class="line">            r.next = node</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> list: [<span class="type">Node</span>] = []</div><div class="line">    <span class="keyword">var</span> degree: [<span class="type">Int</span>] = []</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">canFinish</span><span class="params">(numCourses: Int, <span class="number">_</span> prerequisites: [[Int]])</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="built_in">count</span> = numCourses</div><div class="line">        list = (<span class="number">0</span>..&lt;<span class="built_in">count</span>).<span class="built_in">map</span> &#123; <span class="type">Node</span>(val: $<span class="number">0</span>)&#125;</div><div class="line">        degree = <span class="type">Array</span>(<span class="built_in">count</span>: <span class="built_in">count</span>, repeatedValue: <span class="number">0</span>)</div><div class="line">        </div><div class="line">        prerequisites.forEach &#123; (edge) <span class="keyword">in</span></div><div class="line">            degree[edge[<span class="number">1</span>]] += <span class="number">1</span></div><div class="line">            list[edge[<span class="number">0</span>]].insert(<span class="type">Node</span>(val: edge[<span class="number">1</span>]))</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> zero: [<span class="type">Int</span>] = []</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;degree.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">if</span> degree[i] == <span class="number">0</span> &#123;</div><div class="line">                zero.append(i)</div><div class="line">                <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> !zero.isEmpty &#123;</div><div class="line">            <span class="keyword">let</span> v = zero.popLast()!</div><div class="line">            <span class="keyword">var</span> r = list[v].next</div><div class="line">            <span class="keyword">while</span> r != <span class="literal">nil</span> &#123;</div><div class="line">                degree[r.val] -= <span class="number">1</span></div><div class="line">                <span class="keyword">if</span> degree[r.val] == <span class="number">0</span> &#123;</div><div class="line">                    zero.append(r.val)</div><div class="line">                    <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">                &#125;</div><div class="line">                r = r.next</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">count</span> == <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Total Accepted: 50440&lt;br&gt;Total Submissions: 175254&lt;br&gt;Difficulty: Medium&lt;br&gt;There are a total of n courses you have to take, labeled from
-    
-    </summary>
-    
-    
-  </entry>
   
-  <entry>
-    <title>200. numberOfIslands</title>
-    <link href="https://nandawys.github.io/2017/06/03/numberOfIslands/"/>
-    <id>https://nandawys.github.io/2017/06/03/numberOfIslands/</id>
-    <published>2017-06-03T07:27:14.000Z</published>
-    <updated>2017-06-03T07:28:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
-<p><strong><em>Example 1:</em></strong></p>
-<pre><code>11110
-11010
-11000
-00000
-</code></pre><p>Answer: 1</p>
-<p>Example 2:</p>
-<pre><code>11000
-11000
-00100
-00011
-</code></pre><p>Answer: 3</p>
-<h2 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h2><blockquote>
-<p>DFS、BFS<br>这种解法效率太低</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> iLen = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> jLen = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> tree: [<span class="type">Int</span>] = []</div><div class="line">    <span class="keyword">var</span> grid: [[<span class="type">Character</span>]] = []</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numIslands</span><span class="params">(grid: [[Character]])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        </div><div class="line">        <span class="keyword">self</span>.grid = grid</div><div class="line">        <span class="keyword">if</span> grid.<span class="built_in">count</span> &lt;= <span class="number">0</span> || grid[<span class="number">0</span>].<span class="built_in">count</span> &lt;= <span class="number">0</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        &#125;</div><div class="line">        iLen = grid.<span class="built_in">count</span></div><div class="line">        jLen = grid[<span class="number">0</span>].<span class="built_in">count</span></div><div class="line">        <span class="keyword">var</span> <span class="built_in">count</span> = iLen*jLen</div><div class="line">        tree = [<span class="type">Int</span>](<span class="number">0</span>..&lt;<span class="built_in">count</span>)</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;grid.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="number">0</span>..&lt;grid[i].<span class="built_in">count</span> &#123;</div><div class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">"0"</span> &#123;</div><div class="line">                    <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">                    <span class="keyword">continue</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> process(i-<span class="number">1</span>, j: j, index: getIndex(i, j: j)) || process(i, j: j-<span class="number">1</span>, index: getIndex(i, j: j)) &#123;</div><div class="line">                    <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">count</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">process</span><span class="params">(i: Int, j: Int, index: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">if</span> i &lt; <span class="number">0</span> || i &gt;= iLen || j &lt; <span class="number">0</span> || j &gt;= jLen || grid[i][j] == <span class="string">"0"</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        union(getIndex(i, j: j), index2: index)</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getIndex</span><span class="params">(i: Int, j: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> i*iLen + j</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findRoot</span><span class="params">(index: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        </div><div class="line">        <span class="keyword">var</span> root = index</div><div class="line">        <span class="keyword">while</span> root != tree[root] &#123;</div><div class="line">            tree[root] = tree[tree[root]]</div><div class="line">            root = tree[root]</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> root</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">union</span><span class="params">(index1: Int, index2: Int)</span></span> &#123;</div><div class="line">        <span class="keyword">if</span> findRoot(index1) == findRoot(index2) &#123;</div><div class="line">            <span class="keyword">return</span></div><div class="line">        &#125;</div><div class="line">        tree[findRoot(index1)] = findRoot(index2)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><blockquote>
-<p>并查集<br>这个算法很经典</p>
-</blockquote>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> iLen = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> jLen = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> tree: [<span class="type">Int</span>] = []</div><div class="line">    <span class="keyword">var</span> grid: [[<span class="type">Character</span>]] = []</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numIslands</span><span class="params">(grid: [[Character]])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">self</span>.grid = grid</div><div class="line">        <span class="keyword">if</span> grid.<span class="built_in">count</span> &lt;= <span class="number">0</span> || grid[<span class="number">0</span>].<span class="built_in">count</span> &lt;= <span class="number">0</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        &#125;</div><div class="line">        iLen = grid.<span class="built_in">count</span></div><div class="line">        jLen = grid[<span class="number">0</span>].<span class="built_in">count</span></div><div class="line">        <span class="keyword">var</span> <span class="built_in">count</span> = iLen*jLen</div><div class="line">        tree = [<span class="type">Int</span>](<span class="number">0</span>..&lt;<span class="built_in">count</span>)</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;grid.<span class="built_in">count</span> &#123;</div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="number">0</span>..&lt;grid[i].<span class="built_in">count</span> &#123;</div><div class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">"0"</span> &#123;</div><div class="line">                    <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">                    <span class="keyword">continue</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> process(i-<span class="number">1</span>, j: j, index: getIndex(i, j: j)) &#123;</div><div class="line">                    <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> process(i, j: j-<span class="number">1</span>, index: getIndex(i, j: j)) &#123;</div><div class="line">                    <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> process(i+<span class="number">1</span>, j: j, index: getIndex(i, j: j)) &#123;</div><div class="line">                    <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> process(i, j: j+<span class="number">1</span>, index: getIndex(i, j: j)) &#123;</div><div class="line">                    <span class="built_in">count</span> -= <span class="number">1</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">count</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">process</span><span class="params">(i: Int, j: Int, index: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">if</span> i &lt; <span class="number">0</span> || i &gt;= iLen || j &lt; <span class="number">0</span> || j &gt;= jLen || grid[i][j] == <span class="string">"0"</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> union(getIndex(i, j: j), index2: index)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getIndex</span><span class="params">(i: Int, j: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> i*jLen + j</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">findRoot</span><span class="params">(index: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> root = index</div><div class="line">        <span class="keyword">while</span> root != tree[root] &#123;</div><div class="line">            tree[root] = tree[tree[root]]</div><div class="line">            root = tree[root]</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> root</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">union</span><span class="params">(index1: Int, index2: Int)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">        <span class="keyword">if</span> findRoot(index1) == findRoot(index2) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        tree[findRoot(index1)] = findRoot(index2)</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by conne
-    
-    </summary>
-    
-    
-  </entry>
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://nandawys.github.io/2017/06/03/courseSchedule/" data-title="207. Course Schedule | 麻木的世界" data-tsina="undefined" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/06/03/numberOfIslands/"  title="200. numberOfIslands">
+ <strong>下一篇：</strong><br/> 
+ <span>200. numberOfIslands
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邻接表-DFS"><span class="toc-number">2.</span> <span class="toc-text">邻接表+DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邻接矩阵-DFS（超时）"><span class="toc-number">3.</span> <span class="toc-text">邻接矩阵+DFS（超时）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#邻接表-拓扑排序-（时间复杂度O-V-E-）"><span class="toc-number">4.</span> <span class="toc-text">邻接表+拓扑排序 （时间复杂度O(V+E)）</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
   
-</feed>
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 欢迎来到麻木的世界. <br/>
+			你信或不信, 我就在这里.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="nandawys">nandawys</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
