@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
-  
+  <title>麻木的老武</title>
+  <subtitle>黄鹤一去不复返，白云千载空悠悠。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://nandawys.github.io/"/>
   <updated>2017-06-03T01:00:04.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://nandawys.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>送颜武</name>
     
   </author>
   
@@ -17,8 +17,8 @@
   
   <entry>
     <title>nandawys</title>
-    <link href="http://yoursite.com/2017/06/02/nandawys/"/>
-    <id>http://yoursite.com/2017/06/02/nandawys/</id>
+    <link href="https://nandawys.github.io/2017/06/02/nandawys/"/>
+    <id>https://nandawys.github.io/2017/06/02/nandawys/</id>
     <published>2017-06-02T13:50:23.000Z</published>
     <updated>2017-06-03T01:00:04.000Z</updated>
     
