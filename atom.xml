@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nandawys.github.io/"/>
-  <updated>2017-06-16T06:22:56.000Z</updated>
+  <updated>2017-12-20T01:21:57.000Z</updated>
   <id>https://nandawys.github.io/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Designated Initializer and Convenience Initializer in Swift</title>
+    <link href="https://nandawys.github.io/2017/12/20/Designated-Initializer-and-Convenience-Initializer-in-Swift/"/>
+    <id>https://nandawys.github.io/2017/12/20/Designated-Initializer-and-Convenience-Initializer-in-Swift/</id>
+    <published>2017-12-20T01:14:49.000Z</published>
+    <updated>2017-12-20T01:21:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Designated-Initializer-and-Convenience-Initializer-in-Swift"><a href="#Designated-Initializer-and-Convenience-Initializer-in-Swift" class="headerlink" title="Designated Initializer and Convenience Initializer in Swift"></a>Designated Initializer and Convenience Initializer in Swift</h1><p>在swift的构造函数中有两个概念: Designated Init和 Convenience Init。初学者会分不清这两者的存在意义和区别。</p>
+<h2 id="几个构造函数的继承知识点"><a href="#几个构造函数的继承知识点" class="headerlink" title="几个构造函数的继承知识点"></a>几个构造函数的继承知识点</h2><ol>
+<li><p><strong>如果子类不实现/任何 Designated Initializer, 则子类可以继承父类的所有Designated Initializer和Convenience Initializer，这个很好理解。</strong></p>
+<p> <img src="../media/15137327560230.jpg" alt=""></p>
+</li>
+<li><p><strong>如果子类实现/覆盖了任意一种Designated Initializer，同时并没有重构所有父类的Designated Initializer，那么子类不继承任何父类的Designated Initializer和Convenience Initializer。</strong></p>
+<p> <img src="../media/15137328277294.jpg" alt=""></p>
+</li>
+</ol>
+<pre><code>为了说明为什么会是这个结果，我们在Foo类中新增了一个未初始化的成员变量b，同时重构了init()。根据swift的语法规则，init函数中必须初始化所有成员变量。
+</code></pre><p>我们试想，如果Foo此时仍然可以继承父类的所有构造函数，那父类的构造函数如何能够知道该如何初始化成员变量b呢？</p>
+<ol>
+<li><p><strong>如果子类覆盖了所有父类的Designated Initializer，那么子类将继承所有父类的Convenience Initializer。</strong></p>
+<p> 这个应该很好理解，因为Convenience Initializer最终都需要调用Designated Initializer，如果没有覆盖父类所有Designated Initializer，那么无法保证所有Convenience Initializer可以正常执行，因为编译器没有精确到记录Convenience Initializer到底调用的是哪个具体的Designated Initializer。</p>
+<p> <img src="../media/15137328502530.jpg" alt=""></p>
+</li>
+</ol>
+<h2 id="Convenience-Initializer-存在的意义"><a href="#Convenience-Initializer-存在的意义" class="headerlink" title="Convenience Initializer 存在的意义"></a>Convenience Initializer 存在的意义</h2><p>为什么需要Convenience Initializer？那些场景下会需要Convenience Initializer？</p>
+<ol>
+<li><p><strong>Designated Initializer 自身不可以调用Designated Initializer，只有Convenience Initializer 可以调用 Designated Initializer</strong></p>
+<p> 这是swift的规则，可能原因：避免递归调用，增加代码复杂度。</p>
+</li>
+</ol>
+<ol>
+<li><p><strong>避免重复代码</strong></p>
+<p> 我们知道Convenience Initializer最终都将调用自身的Designated Initializer，如果我们把可抽出的、通用的构造逻辑放在某一个Designated Initializer中，那么所有Convenience Initializer都可以使用该段逻辑，否则我们将在所有Designated Initializer中出现重复的代码，违反DRY原则。</p>
+</li>
+<li><p><strong>继承给子类</strong></p>
+<p> <strong>Convenience Initializer更像是一种方法而非构造函数。</strong>如果父类有N多个Designated Initializer，子类如果想继承父类所有Designated Initializer，那么子类不能现实现任何Designated Initializer，否则将不能继承任何父类的Designated Initializer。原因在上文已经说过。<br> <img src="../media/15137328901788.jpg" alt=""></p>
+</li>
+</ol>
+<pre><code>如何解决这个问题？
+
+父类只需要将想要被子类继承的构造函数写成Convenience Initializer的形式，同时父类实现尽可能少的Designated Initializer。这样子类只需要覆盖父类的Designated Initializer，就能够继承父类所有的Convenience Initializer。曲线救国。
+
+![](../media/15137329020089.jpg)
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Designated-Initializer-and-Convenience-Initializer-in-Swift&quot;&gt;&lt;a href=&quot;#Designated-Initializer-and-Convenience-Initializer-in-Swift&quot; 
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>546.Remove Boxes</title>
