@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nandawys.github.io/"/>
-  <updated>2017-12-20T02:43:07.000Z</updated>
+  <updated>2017-12-20T02:45:10.000Z</updated>
   <id>https://nandawys.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://nandawys.github.io/2017/12/20/Designated-Initializer-and-Convenience-Initializer-in-Swift/"/>
     <id>https://nandawys.github.io/2017/12/20/Designated-Initializer-and-Convenience-Initializer-in-Swift/</id>
     <published>2017-12-20T01:14:49.000Z</published>
-    <updated>2017-12-20T02:43:07.000Z</updated>
+    <updated>2017-12-20T02:45:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>在swift的构造函数中有两个概念: Designated Init和 Convenience Init。初学者会分不清这两者的存在意义和区别。</p>
 <h2 id="几个构造函数的继承知识点"><a href="#几个构造函数的继承知识点" class="headerlink" title="几个构造函数的继承知识点"></a>几个构造函数的继承知识点</h2><ol>
@@ -43,9 +43,7 @@
 <p> 我们知道Convenience Initializer最终都将调用自身的Designated Initializer，如果我们把可抽出的、通用的构造逻辑放在某一个Designated Initializer中，那么所有Convenience Initializer都可以使用该段逻辑，否则我们将在所有Designated Initializer中出现重复的代码，违反DRY原则。</p>
 </li>
 <li><p><strong>继承给子类</strong></p>
-<p> <strong>Convenience Initializer更像是一种方法而非构造函数。</strong>如果父类有N多个Designated Initializer，子类如果想继承父类所有Designated Initializer，那么子类不能现实现任何Designated Initializer，否则将不能继承任何父类的Designated Initializer。原因在上文已经说过。<br> <img src="/media/15137369089277.jpg" alt=""></p>
-<p> 如何解决这个问题？</p>
-<p> 父类只需要将想要被子类继承的构造函数写成Convenience Initializer的形式，同时父类实现尽可能少的Designated Initializer。<br> 这样子类只需要覆盖父类的Designated Initializer，就能够继承父类所有的Convenience Initializer。曲线救国。<br> <img src="/media/15137369153373.jpg" alt=""></p>
+<p> <strong>Convenience Initializer更像是一种方法而非构造函数。</strong>如果父类有N多个Designated Initializer，子类如果想继承父类所有Designated Initializer，那么子类不能现实现任何Designated Initializer，否则将不能继承任何父类的Designated Initializer。原因在上文已经说过。<br> <img src="/media/15137369089277.jpg" alt=""><br> 如何解决这个问题？<br> 父类只需要将想要被子类继承的构造函数写成Convenience Initializer的形式，同时父类实现尽可能少的Designated Initializer。<br> 这样子类只需要覆盖父类的Designated Initializer，就能够继承父类所有的Convenience Initializer。曲线救国。<br> <img src="/media/15137369153373.jpg" alt=""></p>
 </li>
 </ol>
 ]]></content>
